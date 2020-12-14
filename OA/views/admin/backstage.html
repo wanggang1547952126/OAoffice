@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>后台</title>
+    <link rel="stylesheet" href="../css/personBackstage.css">
+</head>
+<body>
+    <section id="main">
+        <header id="header">
+            <input v-model='search' type="search">
+            <img src="../img/加号.png">
+        </header>
+        <persondiv v-for = 'val in persons' :val = 'val' ></persondiv>
+        <!-- <div v-for = 'val in persons' v-if='ife'>
+            <p><span>姓名：</span>{{val.name}}</p>
+            <p><span>身份证：</span>{{val.identity}}</p>
+            <p><span>部门：</span>{{val.department}}</p>
+            <p><span>状态：</span>{{val.state}}</p>
+            <p><span>职位：</span>{{val.position}}</p>
+            <p><span>薪资：</span>{{val.salary}}</p>
+        </div> -->
+    </section>
+    <footer id="footer">
+        <div>
+            <img src="../img/人员on.png" alt="">
+            <span class="on">人员档案</span>
+        </div>
+        <div>
+            <img src="../img/办公用品off.png" alt="">
+            <span>办公用品</span>
+        </div>
+        <div>
+            <img src="../img/会议off.png" alt="">
+            <span>会议记录</span>
+        </div>
+        <div>
+            <img src="../img/所有功能off.png" alt="">
+            <span>其他</span>
+        </div>
+    </footer>
+</body>
+<script src="../resources/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="../js/admin/backstage.js"></script>
+</html>

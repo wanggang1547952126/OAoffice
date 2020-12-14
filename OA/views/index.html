@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>欢迎</title>
+</head>
+<link rel="stylesheet" href="css/index.css">
+<body>
+    <section id="bf">
+        <section>
+            <button class="login">登录</button>
+            <button class="register">注册</button>
+        </section>
+    </section>
+    <section id="login">
+        <section>
+            <span>{{msg}}</span>
+            <input v-model="username" type="text" placeholder="请输入用户名">
+            <input v-model="password" type="password" placeholder="请输入密码">
+            <button @click='login'>登录</button>
+            <p @click = 'register'>还没有账号？快来注册吧</p>
+        </section>
+    </section>
+    <section id="register">
+        <section>
+            <span>{{msg}}</span>
+            <input v-model="username" type="text" placeholder="请输入用户名">
+            <input v-model="password" type="password" placeholder="请输入密码">
+            <input v-model="identity" type="number" placeholder="请输入身份证号">
+            <button @click='register'>注册</button>
+            <p @click='login'>已有账号？快来登录吧</p>
+        </section>
+    </section>
+</body>
+<script src="resources/jquery-3.5.1.js"></script>
+<script src="resources/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="js/index.js"></script>
+<script src="js/login.js"></script>
+<script src="js/register.js"></script>
+</html>

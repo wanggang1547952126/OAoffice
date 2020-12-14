@@ -1,0 +1,97 @@
+/* 通用 */
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+}
+/* 首页 */
+#bf{
+    width: 100vw;
+    height: 100vh;
+    /* transform: translate(); */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    background: url(../img/background-index.jpg) no-repeat;
+    background-size: 100% 100%;
+}
+#bf section{
+    width: 80vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#bf button{
+    width: 30vw;
+    height: 4vh;
+    background: skyblue;
+    border: none;
+    border-radius: 2vh;
+    outline: none;
+    opacity: 0.8;
+    font-weight: bold;
+}
+/* 登录注册页面 */
+#login,
+#register{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 0;
+    background: url(../img/npaclgrpimd-lR.jpg) no-repeat;
+    background-size: 100% 100%;
+}
+#login section,
+#register section
+{
+    width: 80vw;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+#login input,
+#register input
+{
+    width: 80vw;
+    height: 3vh;
+}
+#login button,
+#register button
+{
+    width: 80vw;
+    height: 4vh;
+    border-radius: 1vh;
+    background: green;
+    color: white;
+}
+#login span,
+#register span
+{
+    background: white;
+    color: red;
+    font-weight: bold;
+    /* font-size: 0.8em; */
+}
+#login p,
+#register p
+{
+    color: white;
+    font-size: 0.6em;
+}
+#register section{
+    height: 30vh;
+}
