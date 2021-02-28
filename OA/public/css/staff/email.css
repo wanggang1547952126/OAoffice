@@ -1,0 +1,41 @@
+/* 通用 */
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+}
+body{
+    background: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+#main{
+    width: 90vw;
+}
+
+
+/* 邮件详情 */
+div{
+    width: 90vw;
+    height: 90vh;
+    overflow: auto;
+    font-size: 1.2em;
+}
+h1{
+    margin: 4vh 0 0;
+}
+p{
+    margin: 4vh 0 0;
+}
+
+/* 按钮 */
+button{
+    width: 90vw;
+    height: 6vh;
+    border-radius: 3vw;
+    background-color: green;
+    font-size: 1.2em;
+    color: white;
+}

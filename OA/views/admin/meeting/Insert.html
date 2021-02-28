@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>添加会议记录</title>
+    <link rel="stylesheet" href="../../css/admin/meeting/insert.css">
+</head>
+<body>
+        <form id="all" action="/admin/meeting/meetingInsert" method="POST" enctype="multipart/form-data">
+            <strong id="msg" style="background-color: white; color: red;"></strong>
+            <div>
+                <input type="text" name="name" placeholder="请输入主题">
+            </div>
+            <div>
+                <input type="text" name="remark" placeholder="请输入备注">
+            </div>
+            <div>
+                <input type="date" name="time" placeholder="请输入时间">
+            </div>
+            <div>
+                <input type="file" name="enclosure">
+            </div>
+            <input type="submit" value="添加">
+            <button @click='back'>返回</button>
+        </form>
+    
+</body>
+<script src="../../resources/jquery-3.5.1.js"></script>
+<script src="../../resources/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="../../js/admin/meeting/Insert.js"></script>
+</html>

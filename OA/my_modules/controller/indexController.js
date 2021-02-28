@@ -68,15 +68,6 @@ exports.register = function(req,res){
     let data = {};
     // console.log(username,password,identity);
     // return;
-    if(username == ''||password == ''||identity == ''){//判断用户名、密码或身份证号是否为空
-        data = {
-            code:0,
-            url:'',
-            msg:'用户名，密码或身份证号不能为空'
-        }
-        res.send(data);
-        return;
-    }
     let base = new Base('user');
     base.where({username:username}).select(function(result){//判断用户名是否已存在
         // console.log(result);

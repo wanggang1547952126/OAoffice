@@ -8,8 +8,7 @@ const session = require('express-session');     // 需要用到session的模块
 const multer  = require('multer');              // 文件上传需要用的到模块
 
 // 加载自定义模块
-let web = require('./my_modules/routes/web')       // 正常页面路由模块
-let api = require('./my_modules/routes/api')       // Api接口路由模块
+let web = require('./my_modules/routes/web')       // 页面路由模块
 
 
 // 设定views变量，意为视图存放的目录
@@ -24,7 +23,7 @@ app.engine('html', ejs.__express);
 
 // use() 是express模块的中间件方法
 app.use(express.static(__dirname + '/public'))	// 设置静态资源文件夹
-app.use(multer({ dest: '/tmp/'}).array('image'));       // 设置文件上传的配置
+app.use(multer({ dest: '/tmp/'}).array('enclosure'));       // 设置文件上传的配置
 
 // 使用body这个模块方便输入数据的操作
 app.use(bodyparser.json());     // 使用boddyparser中间件
@@ -41,7 +40,6 @@ app.use(session({
 }));
 
 // 调用路由模块, 并且把服务器实例对象进行传参
-api(app)
 web(app)
 
 

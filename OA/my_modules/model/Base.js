@@ -9,6 +9,7 @@ module.exports = Base;
 Base.prototype.__proto__ = mysql;
 // console.log(Base.prototype.constructor);
 
+
 // 创建一个大的数据库类。使用面向对象的方法来实现
 function Base(table){
     // 设置需要的属性
@@ -19,25 +20,40 @@ function Base(table){
     this.limit_str = '';                    // 用于拼接当前操作限制行输出的字符串
     this.insert_str = '';                   // 用于插入数据数操作时需要插入的数据
     this.update_str = '';                   // 用于修改数据数操作时需要修改的数据
+    let that = this;
 
+    function handleDisconnection(){
+        // 创建NODE连接数据库方法
+        that.connection = that.createConnection({
+            host: "localhost", 			// 服务器地址
+            user: "root", 				// 登录名
+            password: "123456", 		// 登录密码
+            port: "3306", 				// 服务器端口
+            database: "oa" 			// 连接的数据库名
+        });
 
-    // 创建NODE连接数据库方法
-    this.connection = this.createConnection({
-    	host: "localhost", 			// 服务器地址
-    	user: "root", 				// 登录名
-    	password: "123456", 		// 登录密码
-    	port: "3306", 				// 服务器端口
-    	database: "oa" 			// 连接的数据库名
-    });
+        // 进行连接
+        that.connection.connect((err)=>{
+            if(err){
+                handleDisconnection();
+                console.log(err);
+                return ;
+            }
+            console.log('	数据库连接成功!');
+        });
 
-    // 进行连接
-    this.connection.connect((err)=>{
-    	if(err){
-    		console.log(err);
-    		return ;
-    	}
-    	console.log('	数据库连接成功!');
-    });
+        that.connection.on('error', function(err) {
+            // logger.error('db error', err);
+            if(err.code === 'PROTOCOL_CONNECTION_LOST') {
+                // logger.error('db error执行重连:'+err.message);
+                console.log('重连');
+                handleDisconnection();
+            } else {
+                console.log(err);
+            }
+        });
+    }
+    handleDisconnection();
 }
 
 /**
@@ -217,6 +233,7 @@ Base.prototype.delete = function(fun){
 Base.prototype.update = function(fun){
      // update news set title="表妹你好么", content="广西老表" where id=1
      let sql = `update ${this.table} set ${this.update_str} ${this.where_str}`
+     console.log(sql);
      let that = this
      this.connection.query(sql, (err, result)=>{
          if(err){

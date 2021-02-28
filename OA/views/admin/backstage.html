@@ -1,18 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>后台</title>
-    <link rel="stylesheet" href="../css/personBackstage.css">
+    <title>人员档案</title>
+    <link rel="stylesheet" href="../css/admin/personBackstage.css">
 </head>
 <body>
     <section id="main">
         <header id="header">
-            <input v-model='search' type="search">
-            <img src="../img/加号.png">
+            <input v-model='search' type="search" placeholder="搜索名字">
+            <img src="../img/加号.png" @click='operation'>
+            <section class="operation">
+                <span @click='insert'>添加</span><span @click='deletes'>删除</span>
+            </section>
         </header>
-        <persondiv v-for = 'val in persons' :val = 'val' ></persondiv>
+        <persondiv v-for = 'val in persons' :val = 'val' :fun='update'></persondiv>
         <!-- <div v-for = 'val in persons' v-if='ife'>
             <p><span>姓名：</span>{{val.name}}</p>
             <p><span>身份证：</span>{{val.identity}}</p>
@@ -27,11 +30,11 @@
             <img src="../img/人员on.png" alt="">
             <span class="on">人员档案</span>
         </div>
-        <div>
+        <div @click='officeSupplies'>
             <img src="../img/办公用品off.png" alt="">
             <span>办公用品</span>
         </div>
-        <div>
+        <div @click='meeting'>
             <img src="../img/会议off.png" alt="">
             <span>会议记录</span>
         </div>
@@ -41,6 +44,7 @@
         </div>
     </footer>
 </body>
+<script src="../resources/jquery-3.5.1.js"></script>
 <script src="../resources/vue.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="../js/admin/backstage.js"></script>

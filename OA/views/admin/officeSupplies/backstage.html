@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>办公用品</title>
+    <link rel="stylesheet" href="../../css/admin/officeSupplies/backstage.css">
+</head>
+<body>
+    <section id="main">
+        <header id="header">
+            <input v-model='search' type="search" placeholder="搜索名称">
+            <img src="../../img/加号.png" @click='operation'>
+            <section class="operation">
+                <span @click='insert'>购入</span><span @click='deletes'>删除</span>
+            </section>
+        </header>
+        <office-supplies-div v-for = 'val in officeSupplies' :val = 'val' :fun='update'></office-supplies-div>
+        <!-- <div @click='fun(val)'>
+                <p><span>名称：</span>{{val.name}}</p>
+                <p><span>成本：</span>{{val.money}}</p>
+                <p><span>所属部门：</span>{{val.department}}</p>
+                <p><span>购入时间：</span>{{val.time_str}}</p>
+                <p><span>数量：</span>{{val.num}}</p>
+            </div> -->
+    </section>
+    <footer id="footer">
+        <div @click='persons'>
+            <img src="../../img/人员off.png" alt="">
+            <span>人员档案</span>
+        </div>
+        <div>
+            <img src="../../img/办公用品on.png" alt="">
+            <span class="on">办公用品</span>
+        </div>
+        <div @click='meeting'>
+            <img src="../../img/会议off.png" alt="">
+            <span>会议记录</span>
+        </div>
+        <div>
+            <img src="../../img/所有功能off.png" alt="">
+            <span>其他</span>
+        </div>
+    </footer>
+</body>
+<script src="../../resources/jquery-3.5.1.js"></script>
+<script src="../../resources/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="../../js/admin/officeSupplies/backstage.js"></script>
+</html>

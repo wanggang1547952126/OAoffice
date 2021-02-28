@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>更改办公用品</title>
+    <link rel="stylesheet" href="../../css/admin/officeSupplies/updata.css">
+</head>
+<body>
+    <section id="all">
+        <strong id="msg" style="background-color: white; color: red;"></strong>
+        <div>
+            <input v-model='officeSupply.name' type="text" placeholder="请输入名称">
+        </div>
+        <div>
+            <input v-model='officeSupply.money' type="number" placeholder="请输入金额">
+        </div>
+        <div>
+            <input v-model='officeSupply.num' type="number" placeholder="请输入数量">
+        </div>
+        <div>
+            <input v-model='officeSupply.time' type="date" placeholder="请输入时间">
+        </div>
+        <div>
+            <p>
+                <span>部门：</span>
+                <select v-model='officeSupply.department_id'>
+                    <option v-for='val in department' :value="val.id">{{val.name}}</option>
+                </select>
+            </p>
+        </div>
+        <button @click='update'>更改</button>
+        <button @click='back'>返回</button>
+    </section>
+    
+</body>
+<script src="../../resources/jquery-3.5.1.js"></script>
+<script src="../../resources/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="../../js/admin/officeSupplies/Update.js"></script>
+</html>

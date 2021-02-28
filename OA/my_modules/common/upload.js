@@ -2,7 +2,8 @@
 // 需要用到的模块进行加载
 const fs = require('fs')     
 
-exports.upload = function(file, file_arr, fun){
+exports.upload = function(req, file_arr, fun){
+    let file = req.files[0];
     let arr = file.originalname.split('.')
     let file_type = '.'+ arr[arr.length-1]       // 得到的是原文件的后缀名
 
@@ -21,20 +22,24 @@ exports.upload = function(file, file_arr, fun){
         return
     }
 
-    let file_name = new Date().getTime()+ file_type
-    let file_path = process.cwd() + '/public/uploads/'+ file_name;
-    let file_url = '/uploads/'+ file_name;
-    console.log(file_path)
-    console.log(file_url)
+    let file_name = new Date().getTime()+req.session.user.id+file_type;
+    let file_path = process.cwd() + '/public/file/'+ file_name;
+    let file_url = '/file/'+ file_name;
+    // console.log(file_path)
+    // console.log(file_url)
         // 读取文件
         fs.readFile( file.path, function (err, data) {
-            // fs.writeFile() 把内容写入文件中，如果已经存在该文件就把它覆盖
-            fs.writeFile(file_path, data, function (err) {
-                if( err ){
-                    console.log( err );
-                }else{
-                   fun({code:1, file_url:file_url, msg:"上传成功！"})
-                }
-            });
+            if(err){
+                console.log( err );
+            }else{
+                // fs.writeFile() 把内容写入文件中，如果已经存在该文件就把它覆盖
+                fs.writeFile(file_path, data, function (err) {
+                    if( err ){
+                        console.log( err );
+                    }else{
+                    fun({code:1, file_url:file_url, msg:"上传成功！"})
+                    }
+                });
+            }
         });
 }

@@ -10,6 +10,10 @@ let register = new Vue({
         register(){
             // console.log(this.username,this.password);
             let that = this;
+            if(this.username == ''||this.password == ''||this.identity == ''){//判断用户名、密码或身份证号是否为空
+                this.msg='用户名，密码或身份证号不能为空';
+                return;
+            }
             let post = {
                 username:this.username,
                 password:this.password,

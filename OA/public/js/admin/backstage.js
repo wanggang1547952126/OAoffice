@@ -1,8 +1,9 @@
 //注册人员档案组件
 const persondiv = {
-    props:['val'],
-    template:`<div>
+    props:['val','fun'],
+    template:`<div @click='fun(val)'>
                 <p><span>姓名：</span>{{val.name}}</p>
+                <p><span>手机号：</span>{{val.telphone}}</p>
                 <p><span>身份证：</span>{{val.identity}}</p>
                 <p><span>部门：</span>{{val.department}}</p>
                 <p><span>状态：</span>{{val.state}}</p>
@@ -12,8 +13,11 @@ const persondiv = {
 }
 
 
+//操作框状态
+let states = false;
 
 //实例化Vue对象
+//内容
 let main = new Vue({
     el:'#main',
     data:{
@@ -76,6 +80,43 @@ let main = new Vue({
             .catch(function(err){
                 console.log(err);
             });
+        },
+        update(person){
+            // alert(person.id);
+            window.location.href = 'http://' + window.location.host + '/admin/backstage/personUpdate?id='+person.id;
+        },
+        insert(){
+            // alert('insert')
+            window.location.href = 'http://' + window.location.host + '/admin/backstage/personInsert';
+        },
+        deletes(){
+            // alert('deletes')
+            let that = this;
+            let iden = prompt('请输入想要删除的人员档案的身份证号：');
+            if(iden == null){
+                return;
+            }
+            // console.log(iden);
+            axios.post('/admin/backstage/personDelete',{identity:iden})
+            .then(function(res){
+                alert(res.data.msg);
+                that.getALL();
+            })
+            .catch(function(err){
+                console.log(err);
+            });
+        },
+        operation(){
+            if(states){
+                $('#header img').css({animation:'r0 0.3s linear forwards'});
+                $('#header .operation').css({animation:'in 0.3s linear forwards'});
+                states = false;
+            }else{
+                $('#header img').css({animation:'r45 0.3s linear forwards'});
+                $('#header .operation').css({animation:'out 0.3s linear forwards'});
+                states = true;
+            }
+            // alert(123)
         }
     },
     watch:{
@@ -96,5 +137,18 @@ let main = new Vue({
     },
     components:{
         persondiv
+    }
+});
+
+//尾部
+let footer = new Vue({
+    el:'#footer',
+    methods:{
+        officeSupplies(){
+            window.location.href = 'http://' + window.location.host + '/admin/material';
+        },
+        meeting(){
+            window.location.href = 'http://' + window.location.host + '/admin/meeting';
+        }
     }
 });

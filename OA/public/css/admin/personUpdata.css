@@ -1,0 +1,38 @@
+/* 通用 */
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+}
+/* 主要样式 */
+#all{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #f4f4f4;
+}
+div{
+    width: 90vw;
+    height: 3vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 1vh 0 0;
+}
+input{
+    width: 80vw;
+    height: 3vh;
+    border-radius: 1vw;
+}
+button{
+    width: 80vw;
+    height: 4vh;
+    margin: 1vh 0 0;
+    border-radius: 1vh;
+    background: skyblue;
+    color: white;
+}

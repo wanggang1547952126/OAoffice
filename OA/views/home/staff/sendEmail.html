@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>发送邮件</title>
+    <link rel="stylesheet" href="../../css/staff/sendEmail.css">
+</head>
+<body>
+    <section id = 'main'>
+        <form action="/Home/staff/sendEmail" method="POST" enctype="multipart/form-data">
+            <p>标题：<input type="text" name="title"></p>
+            <p>发送的人：
+                <select v-show='flag2' name="person">
+                    <option :value="personid">{{personname}}</option>
+                </select>
+                <span v-show='flag' @click='getperson'>选择</span>
+            </p>
+            <p>附件：<input type="file" name="enclosure"></p>
+            <p>内容：<br><textarea name="content"></textarea></p>
+            <p><input type="submit" value="发送"></p>
+        </form>
+        <div>
+            <input v-model='search' type="search" placeholder="请输入名字">
+            <table>
+                <thead>
+                    <tr>
+                        <th>名字</th>
+                        <th>部门</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for='(val,index) in persons' @click='select(index)'>
+                        <td>{{val.name}}</td>
+                        <td>{{val.department}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <button id="back" @click='back'>返回</button>
+    </section>
+</body>
+<script src="../../resources/jquery-3.5.1.js"></script>
+<script src="../../resources/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="../../js/staff/sendEmail.js"></script>
+</html>

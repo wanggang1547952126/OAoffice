@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>更改人员档案</title>
+    <link rel="stylesheet" href="../../css/admin/personUpdata.css">
+</head>
+<body>
+    <section id="all">
+        <strong id="msg" style="background-color: white; color: red;"></strong>
+        <div>
+            <input v-model='person.name' type="text" placeholder="请输入姓名">
+        </div>
+        <div>
+            <input v-model='person.identity' type="number" placeholder="请输入身份证号">
+        </div>
+        <div>
+            <input v-model='person.telphone' type="number" placeholder="请输入电话号码">
+        </div>
+        <div>
+            <input v-model='person.salary' type="number" placeholder="请输入薪资">
+        </div>
+        <div>
+            <p>
+                <span>部门：</span>
+                <select v-model='person.department_id'>
+                    <option v-for='val in department' :value="val.id">{{val.name}}</option>
+                </select>
+            </p>
+            <p>
+                <span>状态：</span>
+                <select v-model='person.state'>
+                    <option value="0">离职</option>
+                    <option value="1">在职</option>
+                    <option value="2">出差</option>
+                    <option value="3">请假</option>
+                </select>
+            </p>
+            <p>
+                <span>职位：</span>
+                <select v-model='person.jurisdiction_id'>
+                    <option value="0">员工</option>
+                    <option value="1">经理</option>
+                </select>
+            </p>
+        </div>
+        <button @click='update'>更改</button>
+        <button @click='back'>返回</button>
+    </section>
+    
+</body>
+<script src="../../resources/jquery-3.5.1.js"></script>
+<script src="../../resources/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="../../js/admin/personUpdate.js"></script>
+</html>
