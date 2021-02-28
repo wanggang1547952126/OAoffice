@@ -42,7 +42,7 @@ function Base(table){
             console.log('	数据库连接成功!');
         });
 
-        that.connection.on('error', function(err) {
+        that.connection.once('error', function(err) {
             // logger.error('db error', err);
             if(err.code === 'PROTOCOL_CONNECTION_LOST') {
                 // logger.error('db error执行重连:'+err.message);

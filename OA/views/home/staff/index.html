@@ -24,10 +24,18 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="(val,index) in email" :index="index" :val = 'val' :fun = "checked" :fun2 = "look" is="trtd"></tr>
+                <tr v-for="(val,index) in emailPage" :index="index" :val = 'val' :fun = "checked" :fun2 = "look" is="trtd"></tr>
                 <!-- <trtd v-for="val in email" :val = 'val' :fun = "checked"></trtd> -->
             </tbody>
         </table>
+        <div id="page">
+            <span id="pre" @click='prePage'>上一页</span>
+            <div id="pagenum">
+                <span @click='pageChange(val)' v-for='val in PageAll'>{{val}}</span>
+            </div>
+            <span>共{{this.PageAll.length}}页</span>
+            <span id="next" @click='nextPage'>下一页</span>
+        </div>
         <footer>
             <button @click="allChecked">全选</button>
             <button @click="backChecked">反选</button>
