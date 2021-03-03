@@ -27,7 +27,7 @@ let main = new Vue({
     methods:{
         getOfficeSupplies(arr){
             this.officeSupplies = [];
-            for(val of arr){
+            for(let val of arr){
                 let time = new Date(val.time);
                 let y = time.getFullYear();
                 let m = time.getMonth()+1;
@@ -43,7 +43,7 @@ let main = new Vue({
                 val.sum = val.money*val.num;
                 // console.log(time_str);
                 let t = {};
-                for(v in val){
+                for(let v in val){
                     t[v] = val[v];
                 }
                 this.officeSupplies.push(t);

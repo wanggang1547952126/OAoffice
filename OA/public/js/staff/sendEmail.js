@@ -25,7 +25,7 @@ let main = new Vue({
                 .then(function(res2){
                     // console.log(res2.data);
                     that.persons = [];
-                    for(val of res.data){
+                    for(let val of res.data){
                         if(val.id != res2.data.person_id&&val.id != 8){
                             that.persons.push(val);
                         }
@@ -72,7 +72,7 @@ let main = new Vue({
                 }
                 this.persons = [];
                 // console.log(person);
-                for(vl of person){
+                for(let vl of person){
                     this.persons.push(vl);
                 }
                 // console.log(123)

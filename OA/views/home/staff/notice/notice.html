@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>公告</title>
+    <link rel="stylesheet" href="../../css/staff/notice.css">
+</head>
+<body>
+    <section id="main">
+        <p id="search">
+            <input type="search" v-model='search' placeholder="请输入人名">
+        </p>
+        <notice v-for='val in notice' :val='val'></notice>
+    </section>
+    <footer id="footer">
+        <div @click='email'>
+            <img src="../../img/邮件off.png" alt="">
+            <span>邮件</span>
+        </div>
+        <div>
+            <img src="../../img/公告on.png" alt="">
+            <span class="on">公告</span>
+        </div>
+        <div @click='note'>
+            <img src="../../img/便签off.png" alt="">
+            <span>便签</span>
+        </div>
+        <div @click='me'>
+            <img src="../../img/人员off.png" alt="">
+            <span>我的</span>
+        </div>
+    </footer>
+</body>
+<script src="../../resources/jquery-3.5.1.js"></script>
+<script src="../../resources/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="../../js/staff/notice.js"></script>
+</html>

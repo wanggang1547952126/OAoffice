@@ -1,0 +1,48 @@
+/* 通用 */
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+}
+body{
+    background: #f4f4f4;
+}
+
+
+
+
+/* 中部 */
+#main{
+    width: 100vw;
+    height: 86vh;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+    align-items: center;
+    /* overflow: auto; */
+}
+
+
+/* 尾部 */
+#footer{
+    width: 100vw;
+    height: 14vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+}
+#footer div{
+    height: 8vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+#footer .on{
+    color: #1296db;
+}
+#footer img{
+    height: 8vw;
+}

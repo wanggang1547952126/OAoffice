@@ -56,9 +56,9 @@ let all = new Vue({
         let that = this;
         axios.get('/admin/backstage/getAllDepartment')
         .then(function(res){
-            for(val of res.data){
+            for(let val of res.data){
                 let t ={};
-                for(v in val){
+                for(let v in val){
                     t[v] = val[v];
                 }
                 that.department.push(t);

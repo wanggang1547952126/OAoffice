@@ -27,7 +27,7 @@ exports.email = function(req,res){
 //获取所有收到邮件
 exports.acceptEmailAll = function(req,res){
     let base = new Base('email');
-    base.where({accept_person_id:req.session.user.person_id,accept_del:1}).select(function(result){
+    base.order({id:'desc'}).where({accept_person_id:req.session.user.person_id,accept_del:1}).select(function(result){
         let base2 = new Base('person');
                 // console.log(result)
         let i = 0;
@@ -59,7 +59,7 @@ exports.acceptEmailSome = function(req,res){
     
     // console.log(name)
     // return;
-    base.where([{name:name,lim:'like'}]).select(function(result){
+    base.order({id:'desc'}).where([{name:name,lim:'like'}]).select(function(result){
         let base2 = new Base('email');
                 // console.log(result)
         let i = 0;
@@ -92,7 +92,7 @@ exports.acceptEmailSome = function(req,res){
 //获取所有发送邮件
 exports.sendEmailAll = function(req,res){
     let base = new Base('email');
-    base.where({send_person_id:req.session.user.person_id,send_del:1}).select(function(result){
+    base.order({id:'desc'}).where({send_person_id:req.session.user.person_id,send_del:1}).select(function(result){
         let base2 = new Base('person');
                 // console.log(result)
         let i = 0;
@@ -124,7 +124,7 @@ exports.sendEmailSome = function(req,res){
     
     // console.log(name)
     // return;
-    base.where([{name:name,lim:'like'}]).select(function(result){
+    base.order({id:'desc'}).where([{name:name,lim:'like'}]).select(function(result){
         let base2 = new Base('email');
                 // console.log(result)
         let i = 0;
@@ -163,7 +163,7 @@ exports.delEmail = function(req,res){
     // console.log(ids,sa);
     // return;
     let i = 0;
-    for(id of ids){
+    for(let id of ids){
         if(sa == 'a'){
             base.where({id:id}).data({accept_del:0}).update(function(result){
                 if(result.affectedRows > 0){

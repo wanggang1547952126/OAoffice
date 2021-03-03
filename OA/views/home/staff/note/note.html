@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>公告</title>
+    <link rel="stylesheet" href="../../css/staff/note.css">
+</head>
+<body>
+    <section id="main">
+        <p id="search">
+            <input type="search" v-model='search' placeholder="请输入搜索内容">
+        </p>
+        <div class="note">
+            <div v-for='(val,index) in notes' @click='ud(index)'>
+                <span v-html='val.content'></span>
+                <button @click.stop='del(index)'>删除</button>
+            </div>
+        </div>
+        <textarea id="text" v-model='text'></textarea>
+        <button id="add" @click='add'><img src="../../../img/加号.png"></button>
+        <button id="save" @click='save'><span>保存</span></button>
+        <button id="update" @click='update'><span>更改</span></button>
+        <button id="back" @click='back'><span>返回</span></button>
+    </section>
+    <footer id="footer">
+        <div @click='email'>
+            <img src="../../img/邮件off.png" alt="">
+            <span>邮件</span>
+        </div>
+        <div @click='notice'>
+            <img src="../../img/公告off.png" alt="">
+            <span>公告</span>
+        </div>
+        <div>
+            <img src="../../img/便签on.png" alt="">
+            <span class="on">便签</span>
+        </div>
+        <div @click='me'>
+            <img src="../../img/人员off.png" alt="">
+            <span>我的</span>
+        </div>
+    </footer>
+</body>
+<script src="../../resources/jquery-3.5.1.js"></script>
+<script src="../../resources/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="../../js/staff/note.js"></script>
+</html>

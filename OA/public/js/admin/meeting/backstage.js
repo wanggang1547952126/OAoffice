@@ -25,7 +25,7 @@ let main = new Vue({
     methods:{
         getmeeting(arr){
             this.meeting = [];
-            for(val of arr){
+            for(let val of arr){
                 let time = new Date(val.time);
                 let y = time.getFullYear();
                 let m = time.getMonth()+1;
@@ -45,7 +45,7 @@ let main = new Vue({
                     val.flag = true;
                 }
                 let t = {};
-                for(v in val){
+                for(let v in val){
                     t[v] = val[v];
                 }
                 // console.log(val.url);

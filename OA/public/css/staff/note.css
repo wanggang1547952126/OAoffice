@@ -1,0 +1,113 @@
+/* 通用 */
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+}
+body{
+    background: #f4f4f4;
+}
+
+
+
+
+/* 中部 */
+#main{
+    width: 100vw;
+    height: 86vh;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+    align-items: center;
+    /* overflow: auto; */
+}
+#search{
+    width: 100vw;
+    height: 6vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: skyblue;
+}
+input[type=search]{
+    width: 80vw;
+    height: 4vh;
+    border-radius: 2vw;
+}
+#main .note{
+    width: 100vw;
+    height: 70vh;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* justify-content: space-around; */
+    /* align-items: center; */
+    overflow-y: auto;
+}
+#main .note div{
+    width: 88vw;
+    height: 25vh;
+    margin: 2vh 6vw;
+    overflow: hidden;
+    background-color: white;
+    border-radius: 1.5vw;
+    box-shadow: 0 1vw 1vw 1vw rgba(0, 0, 0, .2);
+}
+#main .note span{
+    width: 80vw;
+    height: 17vh;
+    margin: 1vh 1vh;
+    display: block;
+    overflow: hidden;
+}
+#main .note button{
+    width: 70vw;
+    height: 4vh;
+    margin: 0 9vw;
+}
+textarea{
+    width: 90vw;
+    height: 70vh;
+    display: none;
+    margin: 2vh 0 0;
+    padding: 1vh;
+    font-size: 1.3em;
+}
+button{
+    width: 90vw;
+    height: 4vh;
+    margin: 3vh 0 0;
+    background-color: green;
+    border-radius: 2vw;
+    color: white;
+}
+button img{
+    height: 3vh;
+    margin: 0.5vh 0;
+}
+#save,#back,#update{
+    display: none;
+}
+
+/* 尾部 */
+#footer{
+    width: 100vw;
+    height: 14vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+}
+#footer div{
+    height: 8vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+#footer .on{
+    color: #1296db;
+}
+#footer img{
+    height: 8vw;
+}

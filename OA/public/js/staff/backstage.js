@@ -142,7 +142,7 @@ let main = new Vue({
             // console.log(arr);
             this.email = [];
             let i = 0;
-            for(val of arr){
+            for(let val of arr){
                 let time = new Date(val.time);
                 let y = time.getFullYear();
                 let m = time.getMonth()+1;
@@ -171,7 +171,7 @@ let main = new Vue({
                     val.title = val.title.substring(0,3)+'...';
                 }
                 let t = {};
-                for(v in val){
+                for(let v in val){
                     t[v] = val[v];
                 }
                 // console.log(val.url);
@@ -278,7 +278,7 @@ let main = new Vue({
                 $('#next').css('display','block')
             }
             $('#pagenum span').eq(this.page-1).attr("class","on");
-        }
+        },
     },
     watch:{
         search:function(newValue,oldValue){
@@ -307,5 +307,23 @@ let main = new Vue({
     },
     components:{
         trtd
+    }
+});
+
+//尾部
+let footer = new Vue({
+    el:'#footer',
+    methods:{
+        notice(){
+            // alert('111')
+            window.location.href = 'http://' + window.location.host + '/Home/staff/notice';
+        },
+        note(){
+            window.location.href = 'http://' + window.location.host + '/home/staff/note';
+        },
+        me(){
+            // alert('111')
+            window.location.href = 'http://' + window.location.host + '/Home/staff/me';
+        }
     }
 });

@@ -27,7 +27,7 @@ let main = new Vue({
     methods:{
         getPerson(arr){
             this.persons = [];
-            for(val of arr){
+            for(let val of arr){
                 let t = {};
                 if(val.state == 0){
                     val.state = '离职';
@@ -50,7 +50,7 @@ let main = new Vue({
                 if(val.jurisdiction_id == 2){
                     val.position = '管理员';
                 }
-                for(v in val){
+                for(let v in val){
                     t[v] = val[v];
                 }
                 this.persons.push(t);

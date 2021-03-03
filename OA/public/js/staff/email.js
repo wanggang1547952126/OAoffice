@@ -26,7 +26,7 @@ let main = new Vue({
                 if(res.data.url == 0){
                     that.flag = false;
                 }
-                for(val in res.data){
+                for(let val in res.data){
                     Vue.set(that.email,val,res.data[val]);
                 }
                 // console.log(that.email);

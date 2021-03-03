@@ -23,7 +23,7 @@ let all = new Vue({
                 return;
             }
             let t = {};
-            for(val in this.officeSupply){
+            for(let val in this.officeSupply){
                 t[val] = this.officeSupply[val];
             }
             t.time = new Date(t.time).getTime();
@@ -48,16 +48,16 @@ let all = new Vue({
         let that = this;
         axios.get('/admin/backstage/getAllDepartment')
         .then(function(res){
-            for(val of res.data){
+            for(let val of res.data){
                 let t ={};
-                for(v in val){
+                for(let v in val){
                     t[v] = val[v];
                 }
                 that.department.push(t);
             }
             axios.post('/admin/material/getOfficeSupplyById')
             .then(function(res){
-                for(val in res.data){
+                for(let val in res.data){
                     if(val == 'time'){
                         let time = new Date(res.data[val]);
                         let y = time.getFullYear();

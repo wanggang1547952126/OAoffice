@@ -4,6 +4,9 @@ const indexController = require('../controller/indexController');
 const sessionController = require('../controller/sessionController');
 const managerIndexController = require('../controller/home/manager/indexController');
 const staffIndexController = require('../controller/home/staff/indexController');
+const noticeController = require('../controller/home/staff/noticeController');
+const noteController = require('../controller/home/staff/noteController');
+const meController = require('../controller/home/staff/meController');
 
 // 后台控制器
 const backstageController = require('../controller/backstage/backstageController');
@@ -27,11 +30,22 @@ module.exports = function(app){
 
     
     //员工
+    //邮件
     app.get('/home/staff/index',staffIndexController.index)
     app.get('/Home/staff/email',staffIndexController.email)
     app.get('/Home/staff/sendEmail',staffIndexController.sendEmail)
 
+    //公告
+    app.get('/Home/staff/notice',noticeController.index)
 
+    // 便签
+    app.get('/Home/staff/note',noteController.index)
+
+    // 我的
+    app.get('/Home/staff/me',meController.index)
+
+
+    //邮件
     app.post('/home/staff/acceptEmailAll',staffIndexController.acceptEmailAll)
     app.post('/home/staff/acceptEmailSome',staffIndexController.acceptEmailSome)
     app.post('/home/staff/sendEmailAll',staffIndexController.sendEmailAll)
@@ -40,6 +54,8 @@ module.exports = function(app){
     app.post('/home/staff/lookEmail',staffIndexController.lookEmail)
     app.post('/Home/staff/sendEmail',staffIndexController.addEmail)
 
+    //公告
+    app.post('/Home/staff/notice',noticeController.getnotice)
     
     // 后台路由
     //人员档案
