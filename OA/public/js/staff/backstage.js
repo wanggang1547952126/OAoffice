@@ -90,7 +90,7 @@ let main = new Vue({
             if(flag){
                 alert("未选择任何邮件");
             }else{
-                console.log(es);
+                // console.log(es);
                 // return;
                 let that = this;
                 // return;
@@ -103,11 +103,17 @@ let main = new Vue({
                             for(let j=0;j<that.email.length;j++){
                                 if(that.email[j].id == es[i]){
                                     that.email.splice(j,1);
+                                    // $('tr:nth-of-type('+(i+1)+')').remove();
                                     break;
                                 }
                             }
                         }
                         // console.log(that.email);
+                        if(that.sa == 'a'){
+                            that.getAllAcceptEmail();
+                        }else{
+                            that.getAllSendEmail();
+                        }
                         that.noallChecked();
                     }else{
                         alert('删除失败');

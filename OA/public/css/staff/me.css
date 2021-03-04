@@ -22,7 +22,21 @@ body{
     align-items: center;
     /* overflow: auto; */
 }
-
+#main p{
+    width: 100vw;
+    height: 5vh;
+    margin: 2vh 0 0;
+    background-color: white;
+}
+#main p span{
+    margin: 1vh 0 0 4vw;
+    float: left;
+}
+#main p img{
+    height: 3vh;
+    margin: 1vh 4vw 0 0;
+    float: right;
+}
 
 /* 尾部 */
 #footer{
